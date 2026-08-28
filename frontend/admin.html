@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Admin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<header>
+  <h1>Admin Dashboard</h1>
+  <a href="index.html">View public site</a>
+</header>
+
+<main>
+  <div class="card" id="loginCard">
+    <h3>Admin login</h3>
+    <form id="loginForm">
+      <label for="email">Email</label>
+      <input type="email" id="email" required />
+      <label for="password">Password</label>
+      <input type="password" id="password" required />
+      <button type="submit" class="btn" style="margin-top:1rem;">Log in</button>
+    </form>
+    <p id="loginMessage"></p>
+  </div>
+
+  <div id="adminPanel" style="display:none;">
+    <div class="card">
+      <h3>Create event</h3>
+      <form id="createEventForm">
+        <label for="title">Title</label>
+        <input type="text" id="title" required />
+
+        <label for="description">Description</label>
+        <textarea id="description" rows="3" required></textarea>
+
+        <label for="category">Category</label>
+        <select id="category">
+          <option>Conference</option>
+          <option>Workshop</option>
+          <option>Seminar</option>
+          <option>Meetup</option>
+          <option>Webinar</option>
+          <option>Other</option>
+        </select>
+
+        <label for="date">Date & time</label>
+        <input type="datetime-local" id="date" required />
+
+        <label for="location">Location</label>
+        <input type="text" id="location" required />
+
+        <label for="capacity">Capacity</label>
+        <input type="number" id="capacity" min="1" required />
+
+        <button type="submit" class="btn" style="margin-top:1rem;">Create event</button>
+      </form>
+      <p id="createMessage"></p>
+    </div>
+
+    <div class="card" style="margin-top:1.5rem;">
+      <h3>Your events</h3>
+      <div id="adminEventList"><p>Loading...</p></div>
+    </div>
+
+    <div class="card" id="registrantsCard" style="margin-top:1.5rem; display:none;">
+      <h3 id="registrantsTitle">Registrants</h3>
+      <table>
+        <thead>
+          <tr><th>Name</th><th>Email</th><th>Status</th><th></th></tr>
+        </thead>
+        <tbody id="registrantsBody"></tbody>
+      </table>
+    </div>
+  </div>
+</main>
+
+<div class="toast" id="toast"></div>
+
+<script src="js/admin.js"></script>
+</body>
+</html>
